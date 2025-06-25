@@ -1,0 +1,6 @@
+# Ignore private scripts
+private/
+
+# Ignore editor/system files
+.DS_Store
+*.swp
