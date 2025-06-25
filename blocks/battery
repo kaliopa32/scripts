@@ -1,0 +1,75 @@
+
+#!/usr/bin/env bash
+set -euo pipefail
+
+BAT_PATH="/sys/class/power_supply/BAT0"
+BAT_PERCENT=$(cat "$BAT_PATH/capacity")
+BAT_STATUS=$(cat "$BAT_PATH/status")
+
+BLOCKS=10
+FULL=$(( BAT_PERCENT / 10 ))
+REMAINDER=$(( BAT_PERCENT % 10 ))
+HALF=0
+if (( REMAINDER >= 5 )); then
+  HALF=1
+fi
+
+# Build bar with no underscore, just space for empty slots
+BAR=""
+for ((i=1; i<=BLOCKS; i++)); do
+  if (( i <= FULL )); then
+    BAR+="▓"
+  elif (( i == FULL + 1 && HALF == 1 )); then
+    BAR+="▒"
+  else
+    BAR+=" "
+  fi
+done
+
+# Nerd Font icons:      (Font Awesome Battery 0-100),  for charging
+if [[ "$BAT_STATUS" == "Charging" ]]; then
+  ICON=""
+else
+  case $BAT_PERCENT in
+    9[0-9]|100) ICON="" ;;   # Full
+    7[0-9]|8[0-9]) ICON="" ;;
+    5[0-9]|6[0-9]) ICON="" ;;
+    2[0-9]|3[0-9]) ICON="" ;;
+    *) ICON="" ;;
+  esac
+fi
+
+echo "$ICON ${BAT_PERCENT}% [${BAR}]"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
