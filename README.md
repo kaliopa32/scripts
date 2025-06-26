@@ -6,6 +6,10 @@
 
     tool for keeping parity of installed packages on arch linux systems
 
+* brew-parity.sh
+
+    tool for installing / exporting list of packages for homebrew (my usecase is macos)
+
 * dwmtest.sh
 
     script for running dwm nested within an x server using xephyr (among other Xorg dependancies & dwm)
