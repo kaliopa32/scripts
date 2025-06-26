@@ -13,6 +13,7 @@ last_alias_line=0
 current_line=0
 buffer=()
 
+# read line from bashrc, this IFS loop doesnt remove trailing whitespace as opposed to read -r line
 while IFS= read -r line || [[ -n "$line" ]]; do
     ((current_line++))
     trimmed="${line#"${line%%[![:space:]]*}"}"
@@ -27,6 +28,7 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     fi
 done < "$file"
 
+# conditional block for stopping print at last alias, then prints out aliases with color coding
 if (( last_alias_line > 0 )); then
     for ((i = 0; i < last_alias_line; i++)); do
         line="${buffer[i]}"
@@ -41,7 +43,7 @@ if (( last_alias_line > 0 )); then
         fi
     done
 else
-    echo "No alias block found."
+    echo "No alias block found." # print statement for if no aliases are found
 fi
 
 
