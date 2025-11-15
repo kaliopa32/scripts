@@ -18,6 +18,7 @@ $keys = @{
     "LWin"  = 0x5B   # VK_LWIN
     "RWin"  = 0x5C   # VK_RWIN
     "Esc"   = 0x1B   # VK_ESCAPE
+    "Space" = 0x20   # VK_SPACE	
 }
 
 $breakKey = 0x51    # Q — VK_Q
