@@ -34,6 +34,10 @@
 
         dwmblock script to display battery, ascii update is working, but dwm status bar cannot display the dynamic emoji :(
 
+* keymon.ps1
+
+    powershell script to monitor modkey as well as the esc and space key inputs in real time, coloured if 10+ repeated inputs,
+    use to diagnose hardware problems, can run outside of focus.
 
 
 
